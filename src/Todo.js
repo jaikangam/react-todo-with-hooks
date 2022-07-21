@@ -8,13 +8,13 @@ import { Checkbox } from '@mui/material';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 
 
-function Todo({task, completed }) {
+function Todo({ id, task, completed, removeTodo, toogleTodo}) {
   return (
     <ListItem >
-        <Checkbox tabIndex={-1} checked={completed} />
+        <Checkbox tabIndex={-1} checked={completed} onClick={() => toogleTodo(id)} />
         <ListItemText style={{ textDecoration: completed ? "line-through" : "none"}}>  {task} </ListItemText>
         <ListItemSecondaryAction>
-            <IconButton aria-label='Delete'> 
+            <IconButton aria-label='Delete' onClick={() => removeTodo(id)}> 
                 <DeleteIcon /> 
             </IconButton>
             <IconButton aria-label='Edit'> 
